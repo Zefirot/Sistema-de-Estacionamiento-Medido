@@ -1,0 +1,63 @@
+body{
+    background-color: #242424;
+}
+
+#mapid{
+    background: #cccccc;
+  
+    position: absolute;
+  
+    top: 15%;
+    right: 0px;
+    bottom: 0px;
+    left: 15%;
+
+    max-height: 70%;
+    max-width: 70%;
+
+    margin: 10px 7px 10px 7px;
+}
+
+.contenedor{ 
+    display: flex;        
+    justify-content: center;
+}
+
+.textoEstacionamiento{
+    color: white;
+}
+
+.boton_home{
+    text-align: center;
+    width: 100px;
+    display: block;
+    margin: 1%;
+    text-decoration: none;
+    color: black;
+    background-color: #99cecf;
+    border-radius: 24px;
+    font-size: larger;
+    border: 2px solid #bfbfbf;
+    transition-duration: 0.5s;
+}
+.boton_home:hover{
+    border-color: #435f6e;
+    background-color: #242424;
+    color: #cccccc;
+}
+
+/*
+.boton_Volver{
+    text-decoration: none;
+    padding: 10px 30px;
+    font-weight: 600;
+    border: 2px solid #4CAF50;
+    background-color: white;
+    transition-duration: 0.5s;
+}
+
+.boton_Volver:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+*/

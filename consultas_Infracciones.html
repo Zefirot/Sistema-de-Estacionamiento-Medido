@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estacionamiento Medido</title>
+    <link rel="stylesheet" href="css/infracciones.css">
+</head>
+
+<body>
+    
+    <a href="index.html" class="boton_home">Home</a>
+    <div class="contenedor">
+        <form id="formulario">
+            <input name="patente" type="text" required="true" placeholder="Patente" id='patente' >
+            <input name="" type="submit" id="boton_consultas" value="Consultar" onclick="consultarInfraciones()">
+        </form>
+        <div class="datos">
+                <p id='infraccion_id' >Id Infracción:</p>
+                <p id='monto'>Monto a Pagar:</p>
+                <p id='direccion' >Dirección Registrada:</p>
+                <p id='fecha_y_hora'>Fecha y Hora de Registro:</p>
+        </div>  
+    </div>
+    <div class="contenedor">
+        <form>
+            <input name="" type="text" required="true" placeholder="Patente">
+            <input name="" type="text" required="true" placeholder="Id Infracción">
+            <input name="" type="submit" id="boton_consultas" value="Consultar" onclick="consultarAcarreo()">
+        </form>
+        <div class="datos">
+            <p id='infraccion_id' class='datos'></p>
+            <p id='infraccion_id' class='datos'></p>
+            <p id='infraccion_id' class='datos'> </p>
+            <p id='infraccion_id' class='datos'></p>
+        </div>    
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js" integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ==" crossorigin="anonymous"></script>
+    <script src="sources/infracciones.js"></script>
+</body>
+</html>
