@@ -4,7 +4,6 @@ let infraccion_monto = document.querySelector('#monto');
 let infraccion_direccion = document.querySelector('#direccion');
 let infraccion_fecha_hora = document.querySelector('#fecha_y_hora');
 let patente = 'ABC123';
-
 let url = 'https://infraccionesweb.herokuapp.com/api/'
 
 
@@ -22,15 +21,44 @@ let url = 'https://infraccionesweb.herokuapp.com/api/'
 */
 
 function consultarInfraciones(){
-    axios.get(url+patente+'/infracciones/').then(
+    axios.get(url + patente + '/infracciones/').then(
         function(response){
-            let listaInfracciones = response.data.infracciones;
-            for(let i = 0; i < listaInfracciones.length; i++){
-                let infraccion = listaInfracciones[i];
-                dibujarDatos(infraccion)
+           let listaInfracciones = response.data.infracciones;
+           if(listaInfracciones.length > 0){
+               for(let i = 0; i < listaInfracciones.length; i++){
+                   let infraccion = listaInfracciones[i];
+                   dibujarDatos(infraccion)
+               }                      
+           }else{
+               alert("No hay infracciones asosiadas a esa patente");
+           }
+       }
+   );
+
+  /*
+    var url_aca = 'https://infraccionesweb.herokuapp.com/api/';
+    var tmp = document.getElementById('patente').value;
+    url_aca += tmp;
+    url_aca += '/infracciones';
+    if(tmp != ""){
+        axios.get(url_aca).then(
+             function(response){
+                let listaInfracciones = response.data.infracciones;
+                if(listaInfracciones.length > 0){
+                    for(let i = 0; i < listaInfracciones.length; i++){
+                        let infraccion = listaInfracciones[i];
+                        dibujarDatos(infraccion)
+                    }                      
+                }else{
+                    alert("No hay infracciones asosiadas a esa patente");
+                }
             }
-        }
-    );
+        );
+    }else{
+        alert("Debe ingresar una patente");
+        document.getElementById("patente").focus();
+    }
+    */
 }
 
 function dibujarDatos(infraccion){
