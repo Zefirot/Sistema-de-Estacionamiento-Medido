@@ -21,6 +21,7 @@ let url = 'https://infraccionesweb.herokuapp.com/api/'
 */
 
 function consultarInfraciones(){
+    /*
     axios.get(url + patente + '/infracciones/').then(
         function(response){
            let listaInfracciones = response.data.infracciones;
@@ -34,12 +35,15 @@ function consultarInfraciones(){
            }
        }
    );
+   */
 
-  /*
+  
     var url_aca = 'https://infraccionesweb.herokuapp.com/api/';
     var tmp = document.getElementById('patente').value;
     url_aca += tmp;
     url_aca += '/infracciones';
+    alert(url_aca);
+
     if(tmp != ""){
         axios.get(url_aca).then(
              function(response){
@@ -58,8 +62,8 @@ function consultarInfraciones(){
         alert("Debe ingresar una patente");
         document.getElementById("patente").focus();
     }
-    */
 }
+
 
 function dibujarDatos(infraccion){
     infraccion_id.innerText += " " + infraccion.id + " | | "
