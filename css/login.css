@@ -21,6 +21,7 @@ body{
 .boton_home{
     text-align: center;
     width: 100px;
+    max-height: 25px;
     display: block;
     margin: 1%;
     text-decoration: none;
@@ -42,7 +43,7 @@ body{
     width: 150px;
     display: block;
     margin-left: 25%;
-    margin-top:10%;
+    margin-top:5%;
     text-decoration: none;
     color: black;
     background-color: #99cecf;
@@ -57,3 +58,25 @@ body{
     color: #cccccc;
     transition-duration: 0.5s;
 }
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+}
+.header h3{
+    text-align: center;
+    font-size: medium;
+}
+
+.subheader{
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
