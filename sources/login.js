@@ -2,8 +2,8 @@ function loguear() {
 
     var correo = $("#input_correo").val();
     var password = $("#input_password").val();
-
-    var correoOK = (correo.match(/@/g) || []).length == 1; //Se compara si el correo tiene tiene como minimo/maximo un @
+    var expresion_mail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    var correoOK = expresion_mail.test(correo);
 
     if (correo != "" && password != "" && correoOK) {
         //Se guardan los datos obtenidos
@@ -19,13 +19,18 @@ function loguear() {
         $("#sec_login").hide();
         $("#sec_loginExitoso").show();
 
-        //El boton de home de vuelve invisible para evitar problemas con el "display none" y la posicion de los items
+        //El boton de home se vuelve invisible para evitar problemas con el "display none" y la posicion de los items
         $(".boton_home").css("visibility", "hidden");
         $(".boton_home").css("transition-duration", "0s");
 
         actualizar();
     }else{
-        alert("Por favor introduzca todos los campos");
+        if(!correoOK){
+            alert("Por favor introduzca un mail válido (xxxxx@xxxx.xxx)");
+        }else{
+            alert("Por favor introduzca todos los campos");
+        }
+        
     }
 
 
