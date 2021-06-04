@@ -3,8 +3,7 @@ let infraccion_id = document.querySelector('#infraccion_id');
 let infraccion_monto = document.querySelector('#monto');
 let infraccion_direccion = document.querySelector('#direccion');
 let infraccion_fecha_hora = document.querySelector('#fecha_y_hora');
-let patente = 'ABC123';
-let url = 'https://infraccionesweb.herokuapp.com/api/'
+let api = 'https://infraccionesweb.herokuapp.com/api/'
 
 
 /*
@@ -21,37 +20,17 @@ let url = 'https://infraccionesweb.herokuapp.com/api/'
 */
 
 function consultarInfraciones(){
-    /*
-    axios.get(url + patente + '/infracciones/').then(
-        function(response){
-           let listaInfracciones = response.data.infracciones;
-           if(listaInfracciones.length > 0){
-               for(let i = 0; i < listaInfracciones.length; i++){
-                   let infraccion = listaInfracciones[i];
-                   dibujarDatos(infraccion)
-               }                      
-           }else{
-               alert("No hay infracciones asosiadas a esa patente");
-           }
-       }
-   );
-   */
-
-  
-    var url_aca = 'https://infraccionesweb.herokuapp.com/api/';
-    var tmp = document.getElementById('patente').value;
-    url_aca += tmp;
-    url_aca += '/infracciones';
-    alert(url_aca);
-
-    if(tmp != ""){
-        axios.get(url_aca).then(
+    let patente = document.getElementById('patente').value;
+    let url = api + patente + '/infracciones';
+    if(patente != ""){
+        axios.get(url).then(
              function(response){
                 let listaInfracciones = response.data.infracciones;
                 if(listaInfracciones.length > 0){
                     for(let i = 0; i < listaInfracciones.length; i++){
                         let infraccion = listaInfracciones[i];
-                        dibujarDatos(infraccion)
+                        //dibujarDatos(infraccion);
+                        alert(infraccion.existeAcarreo);
                     }                      
                 }else{
                     alert("No hay infracciones asosiadas a esa patente");

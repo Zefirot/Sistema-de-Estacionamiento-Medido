@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Estacionamiento Medido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/infracciones.css">
     <script src="jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
-    
+
     <a href="index.html" class="boton_home">Home</a>
-    <div class="contenedor">
-        <form id="formulario">
-            <input name="patente" type="text" required="true" placeholder="Patente" id='patente'>
-            <input name="" type="submit" id="boton_consultas" value="Consultar" onclick="consultarInfraciones(); return false;">
-        </form>
+    <form id="formulario">
+        <input name="patente" type="text" required="true" placeholder="Patente" id='patente'>
+        <input name="" type="submit" id="boton_consultas" value="Consultar"
+            onclick="consultarInfraciones(); return false;"> <!--FIXME-->
+    </form>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id Infracción</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Dirección Registrada</th>
+                <th scope="col">Fecha y Hora</th>
+                <th scope="col">Consultar Acarreo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td colspan="2"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!--
         <div class="datos">
                 <p id='infraccion_id' >Id Infracción:</p>
                 <p id='monto'>Monto a Pagar:</p>
                 <p id='direccion' >Dirección Registrada:</p>
                 <p id='fecha_y_hora'>Fecha y Hora de Registro:</p>
         </div>  
-    </div>
+
+
     <div class="contenedor">
         <form>
             <input name="" type="text" required="true" placeholder="Patente">
@@ -37,8 +77,12 @@
             <p id='infraccion_id' class='datos'></p>
         </div>    
     </div>
+    -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js" integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
+        integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ=="
+        crossorigin="anonymous"></script>
     <script src="sources/infracciones.js"></script>
 </body>
+
 </html>
