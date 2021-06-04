@@ -26,7 +26,7 @@ function loguear() {
         actualizar();
     }else{
         if(!correoOK){
-            alert("Por favor introduzca un mail válido (xxxxx@xxxx.xxx)");
+            alert("Por favor introduzca un mail válido (name@example.com)");
         }else{
             alert("Por favor introduzca todos los campos");
         }
