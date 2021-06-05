@@ -1,23 +1,4 @@
-
-let infraccion_id = document.querySelector('#infraccion_id');
-let infraccion_monto = document.querySelector('#monto');
-let infraccion_direccion = document.querySelector('#direccion');
-let infraccion_fecha_hora = document.querySelector('#fecha_y_hora');
-let api = 'https://infraccionesweb.herokuapp.com/api/'
-
-
-/*
-    Devolver:
-    direccionRegistrada
-    fechaHoraActualizacion
-    fechaHoraRegistro
-    id
-    montoAPagar
-    tipoInfraccion
-
-    existeAcarreo -> Nos va a servir para cuando el chabon pregunte por una infraccion con o sin acarreo y
-    handlear los errores
-*/
+let api = 'https://infraccionesweb.herokuapp.com/api/';
 
 function consultarInfraciones(){
     let patente = document.getElementById('patente').value;
@@ -35,7 +16,7 @@ function consultarInfraciones(){
                     }
                     $("#cerrar_consulta").show();        
                 }else{
-                    
+                    alert("No hay infracciones asociadas a esa patente");
                 }
             }
         );
@@ -47,16 +28,14 @@ function consultarInfraciones(){
 }
 
 function dibujarDatos(infraccion){
-    /*let tipoInfraccion = function(){
-
-    }*/
-
+    consultar_tipo_infraccion(infraccion);
     $("#datos").prepend($(
         "<tr>" +
             "<th scope='row'>" + infraccion.id + "</th>" +
             "<td>" + infraccion.montoAPagar + "</td>" +
             "<td>" + infraccion.direccionRegistrada + "</td>" +
             "<td>" + infraccion.fechaHoraRegistro + "</td>" +
+            "<td>" + localStorage.getItem("tipoInfraccion") + "</td>" +
             "<td>" +
                 "<button class='btn btn-success' style='display: none;' id='btn_consultar_ubicacion' type='submit'>Ubicación del Vehículo</button>" +
             "</td>" +
@@ -64,6 +43,15 @@ function dibujarDatos(infraccion){
     if(infraccion.existeAcarreo){
         $("#btn_consultar_ubicacion").show();
     }
+}
+
+function consultar_tipo_infraccion(infraccion){
+    let url_infr = api + '/tiposInfraccion/' +  infraccion.tipoInfraccion;
+    axios.get(url_infr).then(
+        function(response){
+                localStorage.setItem("tipoInfraccion", response.data.tipo.descripcion);
+            }
+        );
 }
 
 function borrar_tabla(){
