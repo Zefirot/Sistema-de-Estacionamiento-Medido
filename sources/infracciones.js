@@ -1,6 +1,7 @@
 let api = 'https://infraccionesweb.herokuapp.com/api/';
 
 function consultarInfraciones(){
+    borrar_tabla();
     let patente = document.getElementById('patente').value;
     let url = api + patente + '/infracciones';
     //deshabilitar_btn_consultar();
