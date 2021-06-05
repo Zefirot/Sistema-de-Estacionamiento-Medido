@@ -20,64 +20,19 @@
         <input name="" type="submit" id="boton_consultas" value="Consultar"
             onclick="consultarInfraciones(); return false;"> <!--FIXME-->
     </form>
-    <table class="table table-dark table-striped">
-        <thead>
+    <table class="table table-dark table-striped" style="text-align: center;" id="tabla">
+        <thead id="cabecera_tabla" style="display: none;">
             <tr>
-                <th scope="col">Id Infracción</th>
-                <th scope="col">Monto</th>
-                <th scope="col">Dirección Registrada</th>
-                <th scope="col">Fecha y Hora</th>
-                <th scope="col">Consultar Acarreo</th>
-            </tr>
+                <th scope='col'>Id Infracción</th>
+                <th scope='col'>Monto</th>
+                <th scope='col'>Dirección Registrada</th>
+                <th scope='col'>Fecha y Hora</th>
+                <th scope='col'>Consultar Acarreo</th>
+                </tr> 
         </thead>
-        <tbody>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td colspan="2"></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
+        <tbody id="datos"></tbody>
     </table>
-
-
-    <!--
-        <div class="datos">
-                <p id='infraccion_id' >Id Infracción:</p>
-                <p id='monto'>Monto a Pagar:</p>
-                <p id='direccion' >Dirección Registrada:</p>
-                <p id='fecha_y_hora'>Fecha y Hora de Registro:</p>
-        </div>  
-
-
-    <div class="contenedor">
-        <form>
-            <input name="" type="text" required="true" placeholder="Patente">
-            <input name="" type="text" required="true" placeholder="Id Infracción">
-            <input name="" type="submit" id="boton_consultas" value="Consultar" onclick="consultarAcarreo()">
-        </form>
-        <div class="datos">
-            <p id='infraccion_id' class='datos'></p>
-            <p id='infraccion_id' class='datos'></p>
-            <p id='infraccion_id' class='datos'> </p>
-            <p id='infraccion_id' class='datos'></p>
-        </div>    
-    </div>
-    -->
+    <button type="button" class="btn btn-info" id="cerrar_consulta" onclick="borrar_tabla()" style="display: none;">Cerrar</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
         integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ=="

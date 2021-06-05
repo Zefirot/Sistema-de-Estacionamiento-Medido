@@ -22,18 +22,20 @@ let api = 'https://infraccionesweb.herokuapp.com/api/'
 function consultarInfraciones(){
     let patente = document.getElementById('patente').value;
     let url = api + patente + '/infracciones';
+    //deshabilitar_btn_consultar();
     if(patente != ""){
         axios.get(url).then(
              function(response){
                 let listaInfracciones = response.data.infracciones;
                 if(listaInfracciones.length > 0){
+                    $("#cabecera_tabla").show();
                     for(let i = 0; i < listaInfracciones.length; i++){
                         let infraccion = listaInfracciones[i];
-                        //dibujarDatos(infraccion);
-                        alert(infraccion.existeAcarreo);
-                    }                      
+                        dibujarDatos(infraccion);
+                    }
+                    $("#cerrar_consulta").show();        
                 }else{
-                    alert("No hay infracciones asosiadas a esa patente");
+                    
                 }
             }
         );
@@ -41,20 +43,31 @@ function consultarInfraciones(){
         alert("Debe ingresar una patente");
         document.getElementById("patente").focus();
     }
+    //habilitar_btn_consultar();
 }
-
 
 function dibujarDatos(infraccion){
-    infraccion_id.innerText += " " + infraccion.id + " | | "
-    infraccion_monto.innerText += " " + infraccion.montoAPagar + " | | "
-    infraccion_direccion.innerText += " " + infraccion.direccionRegistrada + " | | "
-    infraccion_fecha_hora.innerText += " " + infraccion.fechaHoraRegistro + " | | "
+    /*let tipoInfraccion = function(){
+
+    }*/
+
+    $("#datos").prepend($(
+        "<tr>" +
+            "<th scope='row'>" + infraccion.id + "</th>" +
+            "<td>" + infraccion.montoAPagar + "</td>" +
+            "<td>" + infraccion.direccionRegistrada + "</td>" +
+            "<td>" + infraccion.fechaHoraRegistro + "</td>" +
+            "<td>" +
+                "<button class='btn btn-success' style='display: none;' id='btn_consultar_ubicacion' type='submit'>Ubicación del Vehículo</button>" +
+            "</td>" +
+        "</tr>"));
+    if(infraccion.existeAcarreo){
+        $("#btn_consultar_ubicacion").show();
+    }
 }
 
-
-/*
-function funcion() {
-    axios.get(url+patente+'/acarreos/42')
+function borrar_tabla(){
+    $("#cabecera_tabla").hide();
+    $("#datos tr").remove(); 
+    $("#cerrar_consulta").hide(); 
 }
-*/
-
