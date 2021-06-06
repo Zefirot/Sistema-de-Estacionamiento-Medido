@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estacionamiento Medido</title>
+
+    <!--Librerias para que funcione leaflet (mapa)-->
+    <link rel="stylesheet" href="sources/leaflet/leaflet.css">
+    <script src="sources/leaflet/leaflet.js"></script> 
+
+    <link rel="stylesheet" href="css/estacionamiento.css">
+
+    <link rel="stylesheet" href="css/estacionamiento.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
+        integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ=="
+        crossorigin="anonymous"></script>
+    <script src="sources/depositos.js"></script>
+</head>
+<body onload="mapa();">
+    <a href="index.html" class="boton_home">Volver</a>
+    
+    <div class="contenedor">
+        <h1 class="textoEstacionamiento">Ubicación de Depositos</h1>
+        <div id="mapid"></div>
+    </div>
+
+</body>
+</html>
