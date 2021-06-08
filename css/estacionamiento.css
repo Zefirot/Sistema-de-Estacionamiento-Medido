@@ -10,21 +10,53 @@ body{
     top: 15%;
     right: 0px;
     bottom: 0px;
-    left: 15%;
+    left: 30%;
 
     max-height: 70%;
-    max-width: 70%;
+    max-width: 60%;
 
     margin: 10px 7px 10px 7px;
 }
 
-.contenedor{ 
+.contenedorMapa{ 
     display: flex;        
     justify-content: center;
 }
 
+.contenedor{
+    width: 300px;
+    padding: 15px;
+    margin-top: 15%;
+    margin-left: 11%;
+    transform: translate(-50%, -50%);
+    background-color: #525252;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.botones_navegacion{
+    width: 280px;
+    display: block;
+    margin: 5% 1%;
+    text-decoration: none;
+    color: black;
+    background-color: #99cecf;
+    font-size: 125%;
+    border: 2px solid #bfbfbf;
+    transition-duration: 0.5s;
+}
+
+.botones_navegacion:hover{
+    width: 300px;
+    border-color: #435f6e;
+    background-color: #242424;
+    color: #cccccc;
+}
+
+
 .textoEstacionamiento{
     color: white;
+    margin-left: 22%;
 }
 
 .boton_home{
