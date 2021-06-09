@@ -23,6 +23,11 @@ body{
     justify-content: center;
 }
 
+.textoEstacionamiento{
+    color: white;
+    margin-left: 22%;
+}
+
 .contenedor{
     width: 300px;
     padding: 15px;
@@ -54,10 +59,26 @@ body{
 }
 
 
-.textoEstacionamiento{
-    color: white;
-    margin-left: 22%;
+/*.botones_navegacion{
+    width: 280px;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 5% 1%;
+    font-size: 115%;
+    border: 2px solid #4CAF50;
+    background-color: white;
+    transition-duration: 0.5s;
 }
+
+.botones_navegacion:hover{
+    width: 300px;
+    background-color: #4CAF50;
+    color: white;
+}*/
+
+
+
 
 .boton_home{
     text-align: center;
@@ -78,18 +99,3 @@ body{
     color: #cccccc;
 }
 
-/*
-.boton_Volver{
-    text-decoration: none;
-    padding: 10px 30px;
-    font-weight: 600;
-    border: 2px solid #4CAF50;
-    background-color: white;
-    transition-duration: 0.5s;
-}
-
-.boton_Volver:hover{
-    background-color: #4CAF50;
-    color: white;
-}
-*/

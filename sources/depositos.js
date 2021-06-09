@@ -13,26 +13,23 @@ function mapa(){
 
 function cargarDepositos(map){
 
-    var url = "https://infraccionesweb.herokuapp.com/api/depositos/";
-
+    var url = "https://infraccionesweb.herokuapp.com/api/ABC123/acarreos/42";
     axios.get(url).then(
         function (response) {
-            let depositos = response.data.depositos;
+            let infraccion = response.data.acarreo;
+            
+            let latitud = infraccion.deposito.ubicacion.lat;
+            let longitud = infraccion.deposito.ubicacion.lon;
+
+            let popup = "<b>Nombre: </b>"+infraccion.deposito.nombre +"<br>"+
+                            "<b>Dirección: </b>"+infraccion.deposito.direccion+"<br>"+
+                            "<b>Horarios: </b>"+infraccion.deposito.horarios+"<br>"+
+                            "<b>Telefono: </b>"+infraccion.deposito.telefono;
+
+            L.marker([latitud,longitud]).bindPopup(popup).addTo(map);
+        
     
-            depositos.forEach(deposito => {
-                let latitud = deposito.ubicacion.lat;
-                let longitud = deposito.ubicacion.lon;
-
-                let popup = "<b>Nombre: </b>"+deposito.nombre +"<br>"+
-                            "<b>Dirección: </b>"+deposito.direccion+"<br>"+
-                            "<b>Horarios: </b>"+deposito.horarios+"<br>"+
-                            "<b>Telefono: </b>"+deposito.telefono;
-
-                L.marker([latitud,longitud]).bindPopup(popup).addTo(map);
-                console.log(deposito);
-            });
+        });
     
-        }
-    );
-
+    
 }

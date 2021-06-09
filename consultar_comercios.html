@@ -1,38 +1,39 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Sistema de Estacionamiento Medido</title>
 
     <!--Librerias para que funcione leaflet (mapa)-->
     <link rel="stylesheet" href="sources/leaflet/leaflet.css">
     <script src="sources/leaflet/leaflet.js"></script> 
-
+    
     <link rel="stylesheet" href="sources/leaflet/MarkerCluster.css">
     <link rel="stylesheet" href="sources/leaflet/MarkerCluster.Default.css">
     <script src="sources/leaflet/leaflet.markercluster-src.js"></script>
 
+
     <!--Linkeo de codigo css y js-->
     <link rel="stylesheet" href="css/estacionamiento.css">
     <script src="sources/puntosEstacionamientos.js"></script>
-    <script src="sources/estacionamiento.js"></script>
+    <script src="sources/comercios.js"></script>
 
-    <title>Consulta de estacionamiento libre</title>
 </head>
-<body onload="mapa();">
-    
-    <a href="index.html" class="boton_home">Volver</a>
+<body onload="mapa()">
 
+    <a href="index.html" class="boton_home">Volver</a>
+    
     <div class="contenedorMapa">
-        <h1 class="textoEstacionamiento">Estacionamientos Libres</h1>
+        <h1 class="textoEstacionamiento">Comercios Disponibles</h1>
         <div id="mapid"></div>
     </div>
 
     <div class="contenedor">
         <a href="login.html" class="botones_navegacion" id="boton_iniciar_sesion">Iniciar Sesión</a>
-        <a href="consultar_comercios.html" class="botones_navegacion">Consultar Comercios Adheridos</a>
+        <a href="estacionamiento.html" class="botones_navegacion">Consultar Estacionamientos Libres</a>
         <a href="consultas_Infracciones.html" class="botones_navegacion">Consultar Infracciones</a>
     </div>
+
     
-
-
 </body>
 </html>
