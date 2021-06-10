@@ -33,4 +33,15 @@ var puntosComercios = [{lat: -34.523439, long: -58.703116 },
                     {lat: -34.521477, long: -58.711810},
                     {lat: -34.521127, long: -58.712182},
                     {lat: -34.518422, long: -58.715648},
-                    {lat: -34.514701, long: -58.710412},];
+                    {lat: -34.514701, long: -58.710412}];
+
+var datosComercios = [{nombre: "Kiosco El Metro", horario: "09:00 a 18:00"},
+                     {nombre: "Drugstore", horario: "09:00 a 18:00"},
+                     {nombre: "Kiosco Pepito", horario: "09:00 a 18:00"},
+                     {nombre: "Comercio Nahuel", horario: "09:00 a 18:00"},
+                     {nombre: "La sagrada", horario: "09:00 a 18:00"},
+                     {nombre: "Maxikiosco Galletita", horario: "09:00 a 18:00"},
+                     {nombre: "Comercio Bizcocho", horario: "09:00 a 18:00"},
+                     {nombre: "Kiosco El Pollo", horario: "09:00 a 18:00"},
+                     {nombre: "Maxikiosco Magdalena", horario: "09:00 a 18:00"},
+                     {nombre: "Kiosco Aventura", horario: "09:00 a 18:00"}];

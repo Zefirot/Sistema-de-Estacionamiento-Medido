@@ -1,5 +1,5 @@
 function mapa() {
-
+    var icon;
     var ungsLocation = [-34.5221554, -58.7000067];
     var map = L.map('mapid').setView(ungsLocation, 14); //Punto en donde va a estar centrado el mapa
   
@@ -16,8 +16,17 @@ function mapa() {
       popupAnchor: [1, -34],
       shadowSize: [41, 41]
     });
+
+    icon = L.divIcon({
+      className: 'custom-div-icon',
+      html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-university'>",
+      iconSize: [18, 42],
+      iconAnchor: [15, 42],
+      popupAnchor: [0, -35]
+    });
+
   
-    L.marker(ungsLocation, {icon: redIcon}).bindPopup("Universidad General Sarmiento").addTo(map);
+    L.marker(ungsLocation, {icon: icon}).bindPopup("Universidad General Sarmiento").addTo(map);
   
   
     //Zona azul A
@@ -57,11 +66,22 @@ function mapa() {
   
     L.polygon(latlngs, { color: 'green' }).addTo(map); //Esta linea es necesaria para cambiar el color del poligono
   
+    icon = L.divIcon({
+      className: 'custom-div-icon',
+      html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-store'>",
+      iconSize: [26, 38],
+      iconAnchor: [15, 42],
+      popupAnchor: [0, -35]
+    });
+    
+
     //Se cargan todos los puntos
     var cluster = L.markerClusterGroup(); 
     for(let index = 0; index < puntosComercios.length; index++) {
        cluster.addLayers([
-         L.marker([puntosComercios[index].lat, puntosComercios[index].long]).bindPopup("Comercio: "+index),
+         L.marker([puntosComercios[index].lat, puntosComercios[index].long], {icon: icon})
+         .bindPopup("<b>"+datosComercios[index].nombre+"</b>"+"<br>"+
+                    "<b>"+"Horario: "+"</b>"+datosComercios[index].horario),
        ])
         
     }

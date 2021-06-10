@@ -19,6 +19,14 @@ function cargarDepositos(map){
     var url = "https://infraccionesweb.herokuapp.com/api/"+patente+"/acarreos/"+ID;
 
 
+    let icon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i style='font-size: 20px;' class='fas fa-warehouse fa-xs' >",
+        iconSize: [20, 40],
+        iconAnchor: [13, 42],
+        popupAnchor: [0, -35]
+      });
+
     axios.get(url).then(
         function (response) {
             let infraccion = response.data.acarreo;
@@ -31,7 +39,7 @@ function cargarDepositos(map){
                             "<b>Horarios: </b>"+infraccion.deposito.horarios+"<br>"+
                             "<b>Telefono: </b>"+infraccion.deposito.telefono;
 
-            L.marker([latitud,longitud]).bindPopup(popup).addTo(map).openPopup();
+            L.marker([latitud,longitud], {icon:icon}).bindPopup(popup).addTo(map).openPopup();
         
     
         });

@@ -1,23 +1,21 @@
 function mapa() {
-
+  var icon;
   var ungsLocation = [-34.5221554, -58.7000067];
-  var map = L.map('mapid').setView(ungsLocation, 14); //Punto en donde va a estar centrado el mapa
+  var map = L.map('mapid').setView(ungsLocation, 15); //Punto en donde va a estar centrado el mapa
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  //Se cambia el icono de la ungs para resaltarlo
-  var redIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
+  icon = L.divIcon({
+    className: 'custom-div-icon',
+    html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-university'>",
+    iconSize: [18, 42],
+    iconAnchor: [15, 42],
+    popupAnchor: [0, -35]
   });
 
-  L.marker(ungsLocation, {icon: redIcon}).bindPopup("Universidad General Sarmiento").addTo(map);
+  L.marker(ungsLocation, {icon: icon}).bindPopup("Universidad General Sarmiento").addTo(map);
 
 
   //Zona azul A
@@ -57,11 +55,21 @@ function mapa() {
 
   L.polygon(latlngs, { color: 'green' }).addTo(map); //Esta linea es necesaria para cambiar el color del poligono
 
+
+  icon = L.divIcon({
+    className: 'custom-div-icon',
+    html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-parking'>",
+    iconSize: [18, 38],
+    iconAnchor: [15, 42],
+    popupAnchor: [0, -35]
+  });
+
+
   //Se cargan todos los puntos
   var cluster = L.markerClusterGroup(); 
   for(let index = 0; index < puntos.length; index++) {
      cluster.addLayers([
-       L.marker([puntos[index].lat, puntos[index].long]),
+       L.marker([puntos[index].lat, puntos[index].long], {icon:icon}),
      ])
       
   }
