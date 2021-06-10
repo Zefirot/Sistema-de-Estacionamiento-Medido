@@ -38,10 +38,13 @@ function dibujarDatos(infraccion) {
             "<td>" + infraccion.fechaHoraRegistro + "</td>" +
             "<td>" + tipo_infraccion + "</td>" +
             "<td>" +
-                "<button class='btn btn-success' style='display: none;' id='btn_consultar_ubicacion' type='submit'>Ubicación del Vehículo</button>" +
+                "<a class='btn btn-success' href='consultar_depositos.html' style='display: none;' id='btn_consultar_ubicacion'>Ubicación del Vehículo</a>" +
             "</td>" +
         "</tr>"));
     if (infraccion.existeAcarreo) {
+        localStorage.setItem("Patente", infraccion.patente);
+        localStorage.setItem("ID", infraccion.id);
+
         $("#btn_consultar_ubicacion").show();
     }
 }

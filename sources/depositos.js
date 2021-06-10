@@ -6,14 +6,19 @@ function mapa(){
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
   
-  
+
     cargarDepositos(map);
 }
 
 
 function cargarDepositos(map){
 
-    var url = "https://infraccionesweb.herokuapp.com/api/ABC123/acarreos/42";
+    let patente = localStorage.getItem("Patente");
+    let ID = localStorage.getItem("ID");
+
+    var url = "https://infraccionesweb.herokuapp.com/api/"+patente+"/acarreos/"+ID;
+
+
     axios.get(url).then(
         function (response) {
             let infraccion = response.data.acarreo;
@@ -26,10 +31,16 @@ function cargarDepositos(map){
                             "<b>Horarios: </b>"+infraccion.deposito.horarios+"<br>"+
                             "<b>Telefono: </b>"+infraccion.deposito.telefono;
 
-            L.marker([latitud,longitud]).bindPopup(popup).addTo(map);
+            L.marker([latitud,longitud]).bindPopup(popup).addTo(map).openPopup();
         
     
         });
     
     
+}
+
+
+function borrarDatos(){
+    localStorage.removeItem("Patente");
+    localStorage.removeItem("ID");
 }
