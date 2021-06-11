@@ -22,13 +22,12 @@
         crossorigin="anonymous"></script>
 
     <script src="sources/mapa.js"></script>
-    <script src="sources/home.js"></script>
     <script src="https://kit.fontawesome.com/022fa97a17.js" crossorigin="anonymous"></script>
 
 </head>
 <body onload="mapa()">
 
-    <a href="index.html" class="boton_home">Volver</a>
+    <a href="index.html" class="boton_home" onclick="borrarConsulta()">Volver</a>
     
     <div class="contenedorMapa">
         <h1 class="textoEstacionamiento"></h1>
@@ -36,10 +35,11 @@
     </div>
 
     <div class="contenedor">
-        <a href="login.html" class="botones_navegacion" id="boton_iniciar_sesion">Iniciar Sesión</a>
-        <a href="mapa.html" class="botones_navegacion" id="boton_estacionmientos" onclick="consultarEstacionamiento()">Consultar Estacionamientos Libres</a>
-        <a href= "mapa.html" class="botones_navegacion" id="boton_comercios" onclick="consultarComercios()">Consultar Comercios Adheridos</a>
-        <a href="consultas_Infracciones.html" class="botones_navegacion">Consultar Infracciones</a>
+        <a href="login.html" class="botones_navegacion" id="boton_iniciar_sesion" onclick="borrarConsulta();">Iniciar Sesión</a>
+        <a href='mapa.html' class='botones_navegacion' id='boton_ubicacion' onclick='consultarUbicacion();' style="display: none;">Consultar Ubicacion del Vehiculo</a>
+        <a href="mapa.html" class="botones_navegacion" id="boton_estacionamientos" onclick="consultarEstacionamiento(); borrarConsulta();">Consultar Estacionamientos Libres</a>
+        <a href= "mapa.html" class="botones_navegacion" id="boton_comercios" onclick="consultarComercios(); borrarConsulta();">Consultar Comercios Adheridos</a>
+        <a href="consultas_Infracciones.html" class="botones_navegacion" onclick="borrarConsulta();">Consultar Infracciones</a>
     </div>
 
     

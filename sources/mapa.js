@@ -1,5 +1,6 @@
 var ungsLocation = [-34.5221554, -58.7000067];
 var map;
+var logueado;
 
 function mapa() {
     map = L.map('mapid').setView(ungsLocation, 15);
@@ -10,6 +11,7 @@ function mapa() {
 
 
     let mapa = localStorage.getItem("Mapa");
+
 
     switch (mapa) {
         case "estacionamientos":
@@ -23,6 +25,9 @@ function mapa() {
         case "deposito":
             mostrarDeposito();
             break;
+        case "ubicacion":
+            mostrarUbicacion();
+            break;
     }
 
 
@@ -31,10 +36,15 @@ function mapa() {
 
 
 function mostrarEstacionamientos() {
+    logueado = localStorage.getItem("logueado");
+    if(logueado == "true"){
+        $("#boton_iniciar_sesion").hide();
+        $("#boton_ubicacion").show();
+    }
 
     $(".textoEstacionamiento").text("Estacionamientos Libres");
 
-    $("#boton_estacionmientos").hide();
+    $("#boton_estacionamientos").hide();
     $("#boton_comercios").show();
 
     let icon;
@@ -42,7 +52,7 @@ function mostrarEstacionamientos() {
         className: 'custom-div-icon',
         html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-university'>",
         iconSize: [18, 42],
-        iconAnchor: [15, 42],
+        iconAnchor: [13, 42],
         popupAnchor: [0, -35]
     });
 
@@ -111,17 +121,22 @@ function mostrarEstacionamientos() {
 }
 
 function mostrarComercios() {
+    logueado = localStorage.getItem("logueado");
+    if(logueado == "true"){
+        $("#boton_iniciar_sesion").hide();
+        $("#boton_ubicacion").show();
+    }
 
     $(".textoEstacionamiento").text("Comercios Disponibles");
 
-    $("#boton_estacionmientos").show();
+    $("#boton_estacionamientos").show();
     $("#boton_comercios").hide();
 
     icon = L.divIcon({
         className: 'custom-div-icon',
         html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-university'>",
         iconSize: [18, 42],
-        iconAnchor: [15, 42],
+        iconAnchor: [13, 42],
         popupAnchor: [0, -35]
     });
 
@@ -193,6 +208,12 @@ function mostrarComercios() {
 }
 
 function mostrarDeposito() {
+    logueado = localStorage.getItem("logueado");
+    if(logueado == "true"){
+        $("#boton_iniciar_sesion").hide();
+        $("#boton_ubicacion").show();
+    }
+
     $(".textoEstacionamiento").text("Su vehículo se encuentra retenido aquí");
 
     let patente = localStorage.getItem("Patente");
@@ -216,7 +237,7 @@ function mostrarDeposito() {
             let latitud = infraccion.deposito.ubicacion.lat;
             let longitud = infraccion.deposito.ubicacion.lon;
 
-            map.setView([latitud,longitud],15);
+            map.setView([latitud, longitud], 15);
 
             let popup = "<b>Nombre: </b>" + infraccion.deposito.nombre + "<br>" +
                 "<b>Dirección: </b>" + infraccion.deposito.direccion + "<br>" +
@@ -226,4 +247,81 @@ function mostrarDeposito() {
             L.marker([latitud, longitud], { icon: icon }).bindPopup(popup).addTo(map).openPopup();
         });
 
+}
+
+function mostrarUbicacion() {
+    logueado = localStorage.getItem("logueado");
+    if(logueado == "true"){
+        $("#boton_iniciar_sesion").hide();
+        $("#boton_ubicacion").hide();
+    }
+
+    $(".textoEstacionamiento").text("Su vehículo se encuentra estacionado aquí ");
+
+    let icon;
+    icon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color:#4838cc;' class='marker-pin'></div><i class='fas fa-car'>",
+        iconSize: [18, 42],
+        iconAnchor: [13, 42],
+        popupAnchor: [0, -35]
+    });
+
+    L.marker([-34.522456, -58.705306], { icon: icon }).addTo(map);
+
+
+    //Zona azul A
+    L.polygon([
+        L.latLng(-34.517750, -58.702989),
+        L.latLng(-34.522102, -58.707602),
+        L.latLng(-34.521775, -58.708119),
+        L.latLng(-34.525188, -58.711804),
+        L.latLng(-34.519177, -58.719890),
+        L.latLng(-34.511089, -58.711374),
+        L.latLng(-34.514062, -58.707909),
+        L.latLng(-34.513824, -58.707584),
+    ]).addTo(map);
+
+
+    //Zona azul B
+    L.polygon([
+        L.latLng(-34.527957, -58.707862),
+        L.latLng(-34.530668, -58.704234),
+        L.latLng(-34.527858, -58.701179),
+        L.latLng(-34.530025, -58.698326),
+        L.latLng(-34.528456, -58.696612),
+        L.latLng(-34.525286, -58.701120),
+        L.latLng(-34.526205, -58.702211),
+        L.latLng(-34.524700, -58.704388),
+    ]).addTo(map);
+
+    //Zona verde A
+    var latlngs = [
+        [-34.527957, -58.707862],
+        [-34.520382, -58.699940],
+        [-34.517750, -58.702989],
+        [-34.522102, -58.707602],
+        [-34.521775, -58.708119],
+        [-34.525188, -58.711804]
+    ]
+
+    L.polygon(latlngs, { color: 'green' }).addTo(map); //Esta linea es necesaria para cambiar el color del poligono
+}
+
+
+function consultarEstacionamiento() {
+    localStorage.setItem("Mapa", "estacionamientos");
+}
+
+function consultarComercios() {
+    localStorage.setItem("Mapa", "comercios");
+}
+
+function consultarUbicacion() {
+    localStorage.setItem("Mapa","ubicacion");
+}
+
+function borrarConsulta(){
+    localStorage.removeItem("Patente");
+    localStorage.removeItem("ID");
 }

@@ -8,7 +8,7 @@ $(document).ready(function(){
         $("#texto_logueo").html("Usted esta logueado como:<br>"+localStorage.getItem("correo"));
         $(".subheader").show();
 
-        $(".contenedor").prepend($("<a href='' class='botones_navegacion' id='boton_Consultar_Ubicacion'>Consultar ubicacion del vehiculo</a>"));
+        $("#boton_ubicacion").show();
         $("#boton_iniciar_sesion").hide();
         $("#boton_registrarse").hide();
     }
@@ -20,7 +20,7 @@ function desloguear() {
     localStorage.setItem("logueado", false);
 
     
-    $("#boton_Consultar_Ubicacion").remove();
+    $("#boton_ubicacion").remove();
     $(".subheader").hide();
 
     $("#boton_iniciar_sesion").show();
@@ -36,4 +36,8 @@ function consultarEstacionamiento() {
 
 function consultarComercios() {
     localStorage.setItem("Mapa", "comercios");
+}
+
+function consultarUbicacion() {
+    localStorage.setItem("Mapa","ubicacion");
 }
