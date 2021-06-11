@@ -38,7 +38,7 @@ function dibujarDatos(infraccion) {
             "<td>" + infraccion.fechaHoraRegistro + "</td>" +
             "<td>" + tipo_infraccion + "</td>" +
             "<td>" +
-                "<a class='btn btn-success' href='consultar_depositos.html' style='display: none;' id='btn_consultar_ubicacion'>Ubicación del Vehículo</a>" +
+                "<a class='btn btn-success' href='mapa.html' onclick='consultarDeposito()' style='display: none;' id='btn_consultar_ubicacion'>Ubicación del Vehículo</a>" +
             "</td>" +
         "</tr>"));
     if (infraccion.existeAcarreo) {
@@ -65,4 +65,8 @@ function borrar_tabla() {
     $("#cabecera_tabla").hide();
     $("#datos tr").remove();
     $("#cerrar_consulta").hide();
+}
+
+function consultarDeposito() {
+    localStorage.setItem("Mapa","deposito");
 }

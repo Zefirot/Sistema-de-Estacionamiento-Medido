@@ -28,3 +28,12 @@ function desloguear() {
 
 
 }
+
+
+function consultarEstacionamiento() {
+    localStorage.setItem("Mapa", "estacionamientos");
+}
+
+function consultarComercios() {
+    localStorage.setItem("Mapa", "comercios");
+}
