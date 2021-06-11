@@ -20,6 +20,9 @@
         <input name="" type="submit" id="boton_consultas" value="Consultar"
             onclick="consultarInfraciones(); return false;"> <!--FIXME-->
     </form>
+    <div class="alert alert-danger" id="msg_sin_infraccion" role="alert" style="text-align: center; display: none;">
+        <h5>¡No hay infracciones asociadas a esa patente!</h5>    
+    </div>
     <table class="table table-dark table-striped" style="text-align: center;" id="tabla">
         <thead id="cabecera_tabla" style="display: none;">
             <tr>

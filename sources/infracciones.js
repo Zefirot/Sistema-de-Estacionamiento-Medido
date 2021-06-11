@@ -1,10 +1,10 @@
 let api = 'https://infraccionesweb.herokuapp.com/api/';
 
 function consultarInfraciones() {
-    borrar_tabla();
+    borrar_contenido();
     let patente = document.getElementById('patente').value;
     let url = api + patente + '/infracciones';
-    //deshabilitar_btn_consultar();
+
     if (patente != "") {
         axios.get(url).then(
             function (response) {
@@ -17,7 +17,7 @@ function consultarInfraciones() {
                     }
                     $("#cerrar_consulta").show();
                 } else {
-                    alert("No hay infracciones asociadas a esa patente");
+                    $("#msg_sin_infraccion").show();
                 }
             }
         );
@@ -25,7 +25,7 @@ function consultarInfraciones() {
         alert("Debe ingresar una patente");
         document.getElementById("patente").focus();
     }
-    //habilitar_btn_consultar();
+    
 }
 
 function dibujarDatos(infraccion) {
@@ -52,7 +52,7 @@ function dibujarDatos(infraccion) {
 function consultar_tipo_infraccion(infraccion) {
     var url_infr = api + '/tiposInfraccion/' + infraccion.tipoInfraccion;
     var request = new XMLHttpRequest();
-    request.open('GET', url_infr, false);  // `false` makes the request synchronous
+    request.open('GET', url_infr, false); 
     request.send(null);
     var respuesta = "";
     if (request.status === 200) {
@@ -61,7 +61,8 @@ function consultar_tipo_infraccion(infraccion) {
     return respuesta.tipo.descripcion;
 }
 
-function borrar_tabla() {
+function borrar_contenido() {
+    $("#msg_sin_infraccion").hide();
     $("#cabecera_tabla").hide();
     $("#datos tr").remove();
     $("#cerrar_consulta").hide();
