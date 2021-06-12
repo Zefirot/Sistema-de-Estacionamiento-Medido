@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Estacionamiento Medido</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/infracciones.css">
     <script src="jquery-3.5.1.min.js"></script>
 </head>
@@ -17,11 +16,12 @@
     <a href="index.html" class="boton_home">Home</a>
     <form id="formulario">
         <input name="patente" type="text" required="true" placeholder="Patente" id='patente'>
-        <input name="" type="submit" id="boton_consultas" value="Consultar"
-            onclick="consultarInfraciones(); return false;"> <!--FIXME-->
+        <input name="" type="submit" id="boton_consultas" value="Consultar" onclick="consultarInfraciones(); return false;">
+        <!--FIXME-->
     </form>
-    <div class="alert alert-danger" id="msg_sin_infraccion" role="alert" style="text-align: center; display: none;">
-        <h5>¡No hay infracciones asociadas a esa patente!</h5>    
+    <div class="alert alert-success" id="msg_sin_infraccion" role="alert" style="text-align: center; display: none;">
+        <h5>No hay infracciones asociadas a esa patente</h5>
+        <h5>¡Felicidades!</h5>
     </div>
     <table class="table table-dark table-striped" style="text-align: center;" id="tabla">
         <thead id="cabecera_tabla" style="display: none;">
@@ -32,15 +32,13 @@
                 <th scope='col'>Fecha y Hora</th>
                 <th scope='col'>Tipo de Infracción</th>
                 <th scope='col'>Consultar Acarreo</th>
-                </tr> 
+            </tr>
         </thead>
         <tbody id="datos"></tbody>
     </table>
     <button type="button" class="btn btn-info" id="cerrar_consulta" onclick="borrar_tabla()" style="display: none;">Cerrar</button>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
-        integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ=="
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js" integrity="sha512-V6IDfQu/TH8jr2FUTNMaR8ck+NTj4lFftam3O4vumLTKlNO53KCUkhb26zJ2KmBpCno8C5K9C2eSK5a5H3FtZQ==" crossorigin="anonymous"></script>
     <script src="sources/infracciones.js"></script>
 </body>
 
