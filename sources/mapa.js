@@ -199,6 +199,9 @@ function mostrarComercios() {
                     "<b>" + "Horario: " + "</b>" + datosComercios[index].horario),
         ])
 
+        
+        $("#grupo1").append("<option value="+index+">"+datosComercios[index].nombre+"</option>");
+
     }
 
     cluster.addTo(map);
