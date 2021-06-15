@@ -37,19 +37,14 @@
     </div>
 
     <div class="contenedor">
-        <a href="login.html" class="botones_navegacion" id="boton_iniciar_sesion" onclick="borrarConsulta();">Iniciar
-            Sesión</a>
-        <a href='mapa.html' class='botones_navegacion' id='boton_ubicacion' onclick='consultarUbicacion();'
-            style="display: none;">Consultar Ubicacion del Vehiculo</a>
-        <a href="mapa.html" class="botones_navegacion" id="boton_estacionamientos"
-            onclick="consultarEstacionamiento(); borrarConsulta();">Consultar Estacionamientos Libres</a>
-        <a href="mapa.html" class="botones_navegacion" id="boton_comercios"
-            onclick="consultarComercios(); borrarConsulta();">Consultar Comercios Adheridos</a>
-        <a href="consultas_Infracciones.html" class="botones_navegacion" onclick="borrarConsulta();">Consultar
-            Infracciones</a>
+        <a href="login.html" class="botones_navegacion" id="boton_iniciar_sesion" onclick="borrarConsulta();">Iniciar Sesión</a>
+        <a href='mapa.html' class='botones_navegacion' id='boton_ubicacion' onclick='consultarUbicacion();'style="display: none;">Consultar Ubicacion del Vehiculo</a>
+        <a href="mapa.html" class="botones_navegacion" id="boton_estacionamientos" onclick="consultarEstacionamiento(); borrarConsulta();">Consultar Estacionamientos Libres</a>
+        <a href="mapa.html" class="botones_navegacion" id="boton_comercios" onclick="consultarComercios(); borrarConsulta();">Consultar Comercios Adheridos</a>
+        <a href="consultas_Infracciones.html" class="botones_navegacion" onclick="borrarConsulta();">Consultar Infracciones</a>
     </div>
 
-    <select class="listaComercios" name="comercios" size=11>
+    <select class="listaComercios" style="display: none;" name="comercios" size=11>
         <optgroup id="grupo1" label="Comercios:"></optgroup>
     </select>
 
