@@ -264,7 +264,16 @@ function dibujarZonas() {
 }
 
 function hacerZoom(nombreComercio) {
-    
+    for (let i = 0; i < datosComercios.length; i++) {
+        if(nombreComercio == datosComercios[i].nombre){
+            
+            let latitud = puntosComercios[i].lat;
+            let longitud = puntosComercios[i].long;
+
+            map.setView([latitud, longitud] , 17);
+        }
+    }
+
 }
 
 function consultarEstacionamiento() {
